@@ -1,0 +1,26 @@
+{
+  "name": "nodejsdemo",
+  "version": "1.0.0",
+  "description": "this is a demo",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YujingGao96/nodejsdemo.git"
+  },
+  "author": "yujing",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YujingGao96/nodejsdemo/issues"
+  },
+  "homepage": "https://github.com/YujingGao96/nodejsdemo#readme",
+  "engines": {
+    "node": "10.x"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
