@@ -22,6 +22,18 @@ app.post('/addtask', function(req,res){
     res.redirect('/');
 });
 
+app.post('/removetask', function(req, res) {
+    var completeTask = req.body.check;
+    if(typeof completeTask === "string") {
+        complete.push(completeTask);
+        var a = task.indexOf(completeTask);
+        task.splice(task.indexOf(completeTask), 1);
+    } else if(typeof completeTask === "object"){
+
+    }
+    res.redirect('/');
+});
+
 http.createServer(app).listen(port, function(){
 
 });
