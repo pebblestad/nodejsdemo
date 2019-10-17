@@ -10,9 +10,10 @@ app.set("view engine", 'ejs');
 app.use(bodyParser.urlencoded({ encoded: true}));
 
 var task = ["clean", "cook"];
+var complete = ["eat", "sleep"];
 
 app.get('/', function (req, res){
-    res.render("index", {task: task});
+    res.render("index", {task: task, complete:complete});
 });
 
 app.post('/addtask', function(req,res){
