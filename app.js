@@ -3,12 +3,20 @@ var path = require('path');
 var express = require("express");
 var bodyParser = require("body-parser");
 var app = express();
+var mongoose = require('mongoose');
 var port = process.env.PORT || 3000;
 
 app.set('views', path.join(__dirname, 'views'));
 app.set("view engine", 'ejs');
 app.use(express.static("public"));
-app.use(bodyParser.urlencoded({ encoded: true}));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ encoded: false}));
+const Todo = require('./models/todo.model');
+const mongoDB = 'mongodb+srv://pebblestad:<Js23825088>@cluster0-tqh0q.mongodb.net/test?retryWrites=true&w=majority';
+mongoose.connect(mongoDB);
+mongoose.Promise = global.Promise;
+let db = mongoose.connection;
+db.on('error', console.error.bind(console, "MongoDB connection error:"))
 
 var task = ["clean", "cook"];
 var complete = ["eat", "sleep"];
