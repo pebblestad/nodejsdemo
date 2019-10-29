@@ -23,7 +23,7 @@ app.get('/', function(req, res) {
         } else {
             res.render("index", { title: "error cannot find title of the comic", year: "Sorry no year found" });
         }
-    });	
+    });
 });
 
 app.get('/homeComic', function(req, res) {
