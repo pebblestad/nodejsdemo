@@ -1,0 +1,56 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Random Comic | XKCD Comic</title>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link href="/css/styles.css" rel="stylesheet">
+</head>
+
+<body class="container text-center">
+	<% include ./includes/header %>
+	<div class="card row body-part-m">
+		<div class="mx-auto text-center body-part-p">
+			<div id="randomPic">
+				<h4>Title: <%= title %></h4><br />
+				<h4>Year: <%= year %></h4><br />
+				<img src="<%= img_url %>" alt="The picture cannot be shown for some reasons">
+                </div>
+				<br />
+				<br />
+				<form class="text-center">
+					<button id= "button" class="btn btn-primary btn-lg"> New Comic </button>
+				</form>
+			</div>
+		</div>
+
+		<% include ./includes/footer %>
+		<% include ./includes/scripts %>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script>
+			$("#button").click(function() {
+            $.ajax({
+                type: 'get',
+                url: '/homeComic',
+                data: {
+                    "random": true
+                },
+                dataType: "HTML",
+                success: function(result) {
+                    $("#randomPic").html(result);
+                },
+                error: function() {
+                    alert("Cant retrieve random Comic Strip");
+                }
+            });
+            return false;
+        });
+		</script>
+
+</body>
+
+</html>
